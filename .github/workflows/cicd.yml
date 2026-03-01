@@ -10,11 +10,13 @@ jobs:
         - name: "checkout code"
           run: echo "code clone"
    test:
+     needs: code
      runs-on: ubuntu-latest
      steps:
        - name: "testing"
          run: echo " testing"
    deploy:
+     needs: test  
      runs-on: ubuntu-latest
      steps:
        - name: "deploying"
