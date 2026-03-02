@@ -1,13 +1,10 @@
-name: hello
-on:
-   workflow_dispatch: 
-
+name: greeting
+on: 
+  push:
+    branches: [main]
 jobs:
-  greet:
-    runs-on: ubuntu-latest
-    steps:
-      - name: say hello to users
-        run: echo "Hello zaid"
-
-      - name: say hello to username
-        run: echo "Hello $USER"
+     greet:
+       runs-on: ubuntu-latest
+       steps:
+         - name: say hello
+           run: echo "hello"
