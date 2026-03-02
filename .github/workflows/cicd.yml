@@ -2,6 +2,16 @@
 name: ci/cd
 on:
   workflow_dispatch:
+    inputs:
+      environments:
+        description: this is a env that trigger workflow
+        default: 'dev'
+        required: true 
+        type: choice
+        options:
+          - dev
+          - prod
+          - depl
   push:
     paths: '**.yml'
 jobs:
@@ -17,6 +27,7 @@ jobs:
       - name: testing contsiner
         run: echo " testing contsiner"
   deploy:
+     if: inputs.environments == 'dev' 
      needs: test
      runs-on: ubuntu-latest
      steps:
