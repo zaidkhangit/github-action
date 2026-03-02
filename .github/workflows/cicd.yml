@@ -7,19 +7,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: checkout code
-        run: echo"code_check"
+        run: echo "code_check"
   test:
     needs: code
     runs-on: ubuntu-latest
     steps:
       - name: testing contsiner
-        run: echo" testing contsiner"
+        run: echo " testing contsiner"
   deploy:
      needs: test
      runs-on: ubuntu-latest
      steps:
        - name: deploying contsiner
-         run: echo:"deployed"
+         run: echo "deployed"
 
 
 
