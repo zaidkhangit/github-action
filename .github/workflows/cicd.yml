@@ -1,28 +1,23 @@
 # this is name of the workflow that will be displayed in the Actions Tab
-
-name: CICD
+name: ci/cd
 on:
   workflow_dispatch:
 jobs:
-   code:
-      runs-on: ubuntu-latest
-      steps:
-        - name: "checkout code"
-          run: echo "code clone"
-   test:
-     needs: code
+  code:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout code
+        run: code_check
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: testing contsiner
+        run: echo" testing contsiner"
+  deploy:
      runs-on: ubuntu-latest
      steps:
-       - name: "testing"
-         run: echo " testing"
-   deploy:
-     needs: test  
-     runs-on: ubuntu-latest
-     steps:
-       - name: "deploying"
-         run: echo "testing"
-
-
+       - name: deploying contsiner
+         run: echo:"deployed"
 
 
 
